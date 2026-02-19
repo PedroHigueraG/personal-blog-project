@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
+import remarkGfm from 'remark-gfm';
 
 // Define the posts structure
 import type { Post } from '@/app/types/post';
@@ -19,7 +20,7 @@ export async function getPostByPostname(postname: string): Promise<Post | null> 
     const { data, content } = matter(fileContents);
 
     // Use remark to convert markdown into HTML string
-    const processedContent = await remark().use(html).process(content);
+    const processedContent = await remark().use(remarkGfm).use(html).process(content);
     
     return {
         title: data.title,

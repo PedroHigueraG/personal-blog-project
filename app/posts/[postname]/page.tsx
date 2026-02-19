@@ -12,7 +12,7 @@ export default async function PostPage({params}: PageProps) {
     
     const post = await getPostByPostname(postname);
 
-    console.log(post?.content);
+    // console.log(post?.content);
 
     return (
         <article className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans">

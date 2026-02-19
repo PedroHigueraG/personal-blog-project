@@ -18,6 +18,51 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-blog-content h1, h2, h3 {
-  font-weight: bold;
+
+.blog-content h1, h2 {
+  border-top: #b3b3b3 solid 1px;
+  font-weight: 800;
+  margin: 15px 0;
+  padding-top: 20px;
+}
+
+.blog-content h3 {
+  font-weight: 600;
+  margin: 15px 0;
+}
+
+.blog-content ul {
+  padding-left: 20px;
+  margin: 0px;
+  list-style-type: disc;
+}
+
+.blog-content strong {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.blog-content pre {
+  background-color: var(--foreground);
+  color: var(--background);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+.blog-content table {
+  border-collapse: collapse;
+  border: 1px solid #b3b3b3;
+  margin-top: 15px;
+}
+
+.blog-content thead{
+    border-bottom: 1px solid #b3b3b3;
+}
+
+.blog-content th, .blog-content td {
+  border: 1px solid #b3b3b3;
+  padding: 15px;
 }
