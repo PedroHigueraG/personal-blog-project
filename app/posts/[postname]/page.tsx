@@ -1,4 +1,5 @@
-import { getPostByPostname } from "@/app/lib/post";
+import { getAllPosts, getPostByPostname } from "@/app/lib/post";
+import { notFound } from "next/navigation";
 
 interface PageProps {
     params: Promise<{
@@ -6,11 +7,26 @@ interface PageProps {
     }>
 };
 
+export async function generateStaticParams() {
+
+    const posts = getAllPosts();
+
+    return posts.map(post => ({
+        postname: post.postname
+    }))
+
+}
+
 export default async function PostPage({params}: PageProps) {
 
     const { postname } = await params
     
     const post = await getPostByPostname(postname);
+
+    //If the post doesn't exist, return a 404 page
+    if (!post) {
+        notFound();
+    }
 
     // console.log(post?.content);
 
